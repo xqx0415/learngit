@@ -1,0 +1,6 @@
+
+配置git全局用户名：git config --global user.name ""
+配置用户对应的邮箱：git config --global user.email ""
+初始化一个仓库：git init 
+添加文件：git add [文件名]  --> 注意，可反复多次使用，添加多个文件；
+提交文件：git commit -m [后面输入的是本次提交的说明]
