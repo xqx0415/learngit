@@ -54,7 +54,9 @@ git checkout其实是用版本库里的版本替换工作区的版本，无论�
 
 
 
-
+从远程仓库克隆一个本地仓库：
+git clone git@github.com:server-name:path/repo-name.git
+github：git@github.com:[自己的github名]/[创建的远程仓库名].git
 
 
 
