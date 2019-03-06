@@ -6,4 +6,19 @@
 提交文件：git commit -m [后面输入的是本次提交的说明]
 修改文件后看结果： git status
 git status告诉你有文件被修改过
+
 用git diff可以查看修改内容
+使用该命令之后需要输入q+回车，才可以重新进行输入
+
+查看每次提交的内容：git log
+ -- 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数-->gitlog--pretty=oneline
+
+HEAD：当前版本
+HEAD^：上个版本
+HEAD^^：上上个版本
+HEAD~100：网上100个版本
+
+回退上个版本：git reset --hard HEAD^
+回到指定的版本：git reset --hard [commit id,如：b0c3d]
+
+如果忘记commit id,可使用回看log: git reflog
