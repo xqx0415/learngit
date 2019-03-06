@@ -72,6 +72,25 @@ git branch
 在dev的分支上的工作完成后，切回master分支：
 git checkout master
 
+----
+这是在切换回master主分支，执行合并（git merge dev）后的操作
+
+合并分支：git merge [分支名称]
+删除分支：git branch -d [分支名称]
+
+总结：
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
 
 
 
