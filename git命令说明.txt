@@ -65,6 +65,14 @@ git checkout -b dev
 查看当前分支：(会列出所有分支，当前分支前面会标有一个 * )
 git branch
 
+----
+这里是在分支上添加的内容
+ 分支跟之前的操作一样，修改好后进行 1、add 2、commit
+
+在dev的分支上的工作完成后，切回master分支：
+git checkout master
+
+
 
 
 
