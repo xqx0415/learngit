@@ -22,3 +22,7 @@ HEAD~100：网上100个版本
 回到指定的版本：git reset --hard [commit id,如：b0c3d]
 
 如果忘记commit id,可使用回看log: git reflog
+
+在还没进行commit前，修改的文件已在在暂存区中时，要重新修改内容，可使用：
+git checkout -- [文件名]。 --	》命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令
+执行之后，暂存区会清空该文件add的记录
