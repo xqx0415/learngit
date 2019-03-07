@@ -135,8 +135,8 @@ git stash list
     推送 dev 分支：
   	git push origin dev
 
-  克隆远程分支dev到本地：(git branch -b [本地分支名] [origin/远程分支名])
-  	git branch -b dev origin/dev 
+  克隆远程分支dev到本地：(git checkout -b [本地分支名] [origin/远程分支名])
+  	git checkout -b dev origin/dev 
 
 
   多人协作的工作模式通常是这样：
