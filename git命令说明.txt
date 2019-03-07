@@ -121,8 +121,38 @@ git stash list
 1、用 git stash apply stash@(0),但是恢复后，stash内容并没有删除，需要用 git stash drop 来删除
 2、用 git stash pop ,恢复的同时把stash内容也删除了
 
+==================================================================================
+多人协作：
+
+ 查看远程库的信息：git remote
+ 需要显示更详细的信息：git remote -v 
+ 		-- origin git@github.com:[自己的github名]/[创建的远程仓库名].git(fetch)
+ 		-- origin git@github.com:[自己的github名]/[创建的远程仓库名].git(push)
+ 		显示可以抓取和推送的origin的地址，如果没有推送权限，就看不到push的地址
+
+ 推送分支：
+  推送分支到远程库：
+    推送 dev 分支：
+  	git push origin dev
+
+  克隆远程分支dev到本地：(git branch -b [本地分支名] [origin/远程分支名])
+  	git branch -b dev origin/dev 
 
 
+  多人协作的工作模式通常是这样：
+	首先，可以试图用git push origin <branch-name>推送自己的修改；
+	如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+	如果合并有冲突，则解决冲突，并在本地提交；
+	没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+	如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+
+小结：
+	查看远程库信息，使用git remote -v；
+	本地新建的分支如果不推送到远程，对其他人就是不可见的；
+	从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+	在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+	建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+	从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
 
 
 
