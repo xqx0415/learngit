@@ -193,6 +193,32 @@ github:
 
 		评论区中用户：强颜欢笑 的回复，个人验证是可以的，以此记录。
 
+==================================================================================
+忽略特殊文件
+ 	github提供的各种需要类型的忽略文件描述：
+ 		https://github.com/github/gitignore
+
+
+有些时候，你想添加一个文件到Git，但发现添加不了，原因是这个文件被.gitignore忽略了：
+$ git add App.class
+	The following paths are ignored by one of your .gitignore files:
+	App.class
+	Use -f if you really want to add them.
+	如果你确实想添加该文件，可以用-f强制添加到Git：
+
+$ git add -f App.class
+或者你发现，可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git checkoutck-ignore命令检查：
+
+$ git check-ignore -v App.class
+	.gitignore:3:*.class    App.class
+	Git会告诉我们，.gitignore的第3行规则忽略了该文件，于是我们就可以知道应该修订哪个规则。
+
+小结：
+	忽略某些文件时，需要编写.gitignore；
+	.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+
+
+==================================================================================
 
 
 
