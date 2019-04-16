@@ -2,21 +2,24 @@
 配置git全局用户名：git config --global user.name ""
 配置用户对应的邮箱：git config --global user.email ""
 初始化一个仓库：git init 
-添加文件：git add [文件名]  --> 注意，可反复多次使用，添加多个文件；
-提交文件：git commit -m [后面输入的是本次提交的说明]
+添加文件：git add [文件名]  --> 注意，可反复多次使用，添加多个文件：git add 文件1 文件2 文件2
+		git add . --> 添加当前所有
+		git add -A  --> 提交所有变化，添加所有修改，新增，删除的文件 （all）
+提交文件：git commit -m [后面输入的是本次提交的说明] --> git commit -m '首次提交'
 修改文件后看结果： git status
 git status告诉你有文件被修改过
 
-用git diff可以查看修改内容
+1、用git diff可以查看修改内容
+2、git diff <source_branch> <target_branch>
 使用该命令之后需要输入q+回车，才可以重新进行输入
 
 查看每次提交的内容：git log
- -- 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数-->gitlog--pretty=oneline
+ -- 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数-->git log--pretty=oneline
 
 HEAD：当前版本
 HEAD^：上个版本
 HEAD^^：上上个版本
-HEAD~100：网上100个版本
+HEAD~100：往上100个版本
 
 回退上个版本：git reset --hard HEAD^
 回到指定的版本：git reset --hard [commit id,如：b0c3d]
@@ -45,8 +48,12 @@ git checkout其实是用版本库里的版本替换工作区的版本，无论�
 
 要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
 如关联github：git remote add origin git@github.com:[自己的github名]/[创建的远程仓库名].git
+如关联gitee：git remote add origin git@gitee.com:[自己的github名]/[创建的远程仓库名].git
 
-关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+关联后，
+1、add需要的的文件： git add .  -->添加当前文件夹下的所有文件
+2、提交说明：git commit -m '说明'
+3、使用命令git push -u origin(上面关联时的名字) master 第一次推送master分支的所有内容；
 
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 提交本地仓库，跟上面说明的：1、git add [文件] 2、git commit -m [提交描述]
@@ -149,7 +156,7 @@ git stash list
 小结：
 	查看远程库信息，使用git remote -v；
 	本地新建的分支如果不推送到远程，对其他人就是不可见的；
-	从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+	从本地推送分支，使用git push origin [branch-name]，如果推送失败，先用git pull抓取远程的新提交；
 	在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
 	建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
 	从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
