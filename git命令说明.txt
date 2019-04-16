@@ -60,6 +60,9 @@ git checkout其实是用版本库里的版本替换工作区的版本，无论�
 提交远程仓库： git push origin master
 
 
+删除本地指定的远程地址
+git remote remove origin 删除即可
+
 
 从远程仓库克隆一个本地仓库：
 git clone git@github.com:server-name:path/repo-name.git
